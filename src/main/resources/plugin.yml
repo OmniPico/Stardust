@@ -1,0 +1,21 @@
+name: Stardust
+version: 0.2.7
+author: Allymonies
+main: com.omnipico.stardust.Stardust
+api-version: 1.16
+website: omnipico.com
+depend: [Vault]
+commands:
+  stardust:
+    description: Spawns a random shooting star
+    usage: /stardust
+    permission: stardust.startdust
+permissions:
+  stardust.stardust:
+    default: true
+    description: Allows usage of /stardust
+  stardust.*:
+    default: op
+    description: Allows access to every stardust feature.
+    children:
+      stardust.stardust: true

@@ -1,0 +1,30 @@
+#Configuration
+#Chance, as a decimal, of a shooting star appearing every tick (1 = 100%)
+shooting_star_chance: 0.0001
+#Radius from a player that a shooting star can fall in
+shooting_star_radius: 160
+# Beginning and ending ticks of night where stars can fall
+begin_starfall: 13000
+end_starfall: 23000
+#Star types
+star_types:
+  regular:
+    weight: 100
+    travel_speed: 10
+    trail_particle: END_ROD
+    beacon_particle: END_ROD
+    beacon_duration: 1200
+    player_weight: 100
+    player_proximity_radius: 100
+    player_proximity_bonus: 50
+    loot_table: "stardust:common"
+  fancy:
+    weight: 10
+    travel_speed: 20
+    trail_particle: DRAGON_BREATH
+    beacon_particle: DRAGON_BREATH
+    beacon_duration: 1200
+    player_weight: 100
+    player_proximity_radius: 100
+    player_proximity_bonus: 50
+    loot_table: "stardust:rare"
