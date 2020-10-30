@@ -10,14 +10,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.*;
 
 public class Stardust extends JavaPlugin {
-    Chat chat;
     Map<String, StardustLootTable> stardustLootTables;
     ArrayList<StarType> starTypes;
 
     @Override
     public void onEnable() {
         this.saveDefaultConfig();
-        chat = getServer().getServicesManager().load(Chat.class);
         FileConfiguration config = this.getConfig();
 
         stardustLootTables = new HashMap<>();
