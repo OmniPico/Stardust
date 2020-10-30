@@ -54,7 +54,8 @@ public class ShootingStar extends BukkitRunnable {
                 if (world.getHighestBlockAt(position).getY() < position.getY()) {
                     position = world.getHighestBlockAt(position).getLocation();
                 }
-                //DROP ITEMS
+                ShootingStarLandingEvent shootingStarLandingEvent = new ShootingStarLandingEvent(starType, position);
+                Bukkit.getPluginManager().callEvent(shootingStarLandingEvent);
             }
         } else if (world != null && hit) {
             hitAge++;
