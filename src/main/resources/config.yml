@@ -28,3 +28,34 @@ star_types:
     player_proximity_radius: 100
     player_proximity_bonus: 50
     loot_table: "stardust:rare"
+simple_loot_tables:
+  common:
+    picks: 1
+    items:
+      DIAMOND:
+        weight: 1
+        min: 1
+        max: 1
+      EXPERIENCE_BOTTLE:
+        weight: 4
+        min: 1
+        max: 1
+      IRON_INGOT:
+        weight: 5
+        min: 1
+        max: 1
+  rare:
+    picks: 1
+    items:
+      DIAMOND:
+        weight: 1
+        min: 1
+        max: 3
+      EXPERIENCE_BOTTLE:
+        weight: 4
+        min: 1
+        max: 5
+      IRON_INGOT:
+        weight: 5
+        min: 1
+        max: 8

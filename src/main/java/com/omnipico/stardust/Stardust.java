@@ -7,13 +7,12 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Stardust extends JavaPlugin {
     Chat chat;
+    Map<String, StardustLootTable> stardustLootTables;
+    ArrayList<StarType> starTypes;
 
     @Override
     public void onEnable() {
@@ -21,7 +20,19 @@ public class Stardust extends JavaPlugin {
         chat = getServer().getServicesManager().load(Chat.class);
         FileConfiguration config = this.getConfig();
 
-        ArrayList<StarType> starTypes = new ArrayList<>();
+        stardustLootTables = new HashMap<>();
+        ConfigurationSection lootTablesSection = config.getConfigurationSection("simple_loot_tables");
+        if (lootTablesSection != null) {
+            Set<String> lootTableKeys = lootTablesSection.getKeys(false);
+            for (String lootTableKey : lootTableKeys) {
+                ConfigurationSection lootTableSection = lootTablesSection.getConfigurationSection(lootTableKey);
+                if (lootTableSection != null) {
+                    stardustLootTables.put(lootTableKey, new StardustLootTable(lootTableKey, lootTableSection));
+                }
+            }
+        }
+
+        starTypes = new ArrayList<>();
         ConfigurationSection starTypesSection = config.getConfigurationSection("star_types");
         if (starTypesSection != null) {
             Set<String> starTypesKeys = starTypesSection.getKeys(false);
